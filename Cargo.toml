@@ -1,0 +1,28 @@
+[package]
+name = "clacks"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <you@example.com>"]
+description = "CLI search tool for vulnerability taxonomy with CRT aesthetic"
+
+[[bin]]
+name = "clacks"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+clap = { version = "4.5", features = ["derive", "cargo"] }
+walkdir = "2.4"
+colored = "2.1"
+anyhow = "1.0"
+indicatif = "0.17"
+fuzzy-matcher = "0.3"
+crossterm = "0.27"
+tabled = "0.16"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
